@@ -1,8 +1,9 @@
 # Full Stack open CI/CD
 
-This repository is used for the CI/CD module of the Full stack open course
+This repository is the full stack open pokedex with a container.
 
-Fork the repository to complete course exercises
+just so i can use it for ansible, jenkins etc as a test application for deployment
+
 
 ## Commands
 
