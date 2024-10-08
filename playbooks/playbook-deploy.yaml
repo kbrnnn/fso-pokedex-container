@@ -1,0 +1,23 @@
+- name: Deploy Pokedex Docker container
+  hosts: localhost
+  tasks:
+
+    - name: Stop existing Pokedex container (if running)
+      command: docker stop pokedex || true
+      ignore_errors: yes
+
+    - name: Remove existing Pokedex container (if exists)
+      command: docker rm pokedex || true
+      ignore_errors: yes
+
+    - name: Remove existing Pokedex image (if exists)
+      command: docker rmi pokedex || true
+      ignore_errors: yes
+
+    - name: Deploy Pokedex Docker container
+      docker_container:
+        name: pokedex
+        image: teafordev/pokedex:latest
+        state: started
+        ports:
+          - "3000:5000"
