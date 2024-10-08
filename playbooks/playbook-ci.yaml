@@ -1,0 +1,13 @@
+- name: Deploy Pokedex Docker container
+  hosts: localhost
+  tasks:
+    - name: Create docker image
+      command: docker build -t pokedex:latest .
+      args:
+        chdir: full-stack-open-pokedex-master/
+
+    - name: created tag to push image to dockerhub
+      command: docker tag pokedex:latest teafordev/pokedex:latest
+
+    - name: push docker image
+      command: docker push teafordev/pokedex:latest
